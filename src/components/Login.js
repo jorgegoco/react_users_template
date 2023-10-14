@@ -1,11 +1,12 @@
-import { useRef, useState, useEffect, useContext } from "react"
-import AuthContext from "../context/AuthProvider"
+import { useRef, useState, useEffect } from "react"
+import useAuth from "../hooks/useAuth"
+import { Link } from "react-router-dom"
 
 import axios from "../api/axios"
 const LOGIN_URL = "/auth"
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext)
+  const { setAuth } = useAuth()
   const userRef = useRef()
   const errRef = useRef()
 
@@ -90,7 +91,7 @@ const Login = () => {
         Need an account?
         <br />
         <span className="line">
-          {/* put router link here for Sign Up */}Sign Up
+          <Link to="/register">Sign Up</Link>
         </span>
       </p>
     </section>
