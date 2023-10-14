@@ -69,9 +69,9 @@ const Register = () => {
           // withCredentials: true,
         }
       )
-      console.log(response.data)
-      console.log(response.accessToken)
-      console.log(JSON.stringify(response))
+      setUser("")
+      setPwd("")
+      setMatchPwd("")
       // clear input fields
     } catch (err) {
       if (!err?.response) {

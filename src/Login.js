@@ -17,6 +17,10 @@ const Login = () => {
     setErrMsg("")
   }, [user, pwd])
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <section>
       <p
@@ -27,7 +31,7 @@ const Login = () => {
         {errMsg}
       </p>
       <h1>Sign In</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -38,7 +42,24 @@ const Login = () => {
           value={user}
           required
         />
+
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          onChange={(e) => setPwd(e.target.value)}
+          value={pwd}
+          required
+        />
+        <button>Sign In</button>
       </form>
+      <p>
+        Need an account?
+        <br />
+        <span className="line">
+          {/* put router link here for Sign Up */}Sign Up
+        </span>
+      </p>
     </section>
   )
 }
